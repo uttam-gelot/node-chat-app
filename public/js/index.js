@@ -2,22 +2,42 @@ var socket = io();
 socket.on("connect", function() 
 {
     console.log("connected to server..");
-   
-    // socket.emit("createMessage",
-    // {
-    //     to: "shubh",
-    //     text: "hey shubh",
-    // });
 });
 socket.on("disconnect", function()
 {
     console.log("disconnected from server...");
 });
-socket.on("newEmail", function (email) 
+// socket.on("newEmail", function (email) 
+// {
+//     console.log("New Mail", email);
+// });
+socket.on("newMessage", function (message) 
 {
-    console.log("New Mail", email);
+    console.log("message body...", message);
+    var li = $("<li></li>");
+    li.text(`${message.from} : ${message.text}`);
+    $("#messages").append(li);
 });
-socket.on("newMessage", function (body) 
+
+// socket.emit("createMessage",
+// {
+//     from: "shubh",
+//     text: "hey shubh",
+//     createdAt: new Date().getTime()
+// }, function (data) 
+// {
+//     console.log("got it", data);
+// });
+
+$("#form").on("submit", function (e) 
 {
-    console.log("message body...", body);
+    e.preventDefault();
+    socket.emit("createMessage",
+    {
+        from: "User",
+        text: $("[name = message]").val()
+    }, function () 
+    {
+            
+    });
 });

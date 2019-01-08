@@ -40,7 +40,7 @@ io.on("connection", (socket) =>
     //     cratedAt: 234
     // });
     
-    socket.on("createMessage",(message) =>
+    socket.on("createMessage",(message, callback) =>
     {
         console.log("create message..", message);
         // io.emit("newMessage",
@@ -49,7 +49,8 @@ io.on("connection", (socket) =>
         //     text: message.text,
         //     cratedAt: new Date().getTime()
         // });
-        socket.broadcast.emit("newMessage",generateMessage(message.from, message.text));
+        io.emit("newMessage",generateMessage(message.from, message.text));
+        callback("this is from server...");
     });
 });
 
