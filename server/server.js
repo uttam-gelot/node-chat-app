@@ -6,7 +6,7 @@ const http = require("http");
 const {generateMessage} = require("./utils/message");
 
 const publicPath = path.join(__dirname, "../public");
-const port = process.env.PORT || 5555;
+const port = process.env.PORT || 4444;
 
 var app = express();
 

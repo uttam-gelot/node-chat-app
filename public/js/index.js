@@ -41,3 +41,20 @@ $("#form").on("submit", function (e)
             
     });
 });
+
+var locationbutton = $("#send-location");
+locationbutton.on("click", function () 
+{
+    if(!navigator.geolocation)
+    {
+        return alert("Geolocation is not supported by your browser...");
+    }
+    navigator.geolocation.getCurrentPosition(function (position) 
+    {
+        console.log(position);
+        
+    }, function () 
+    {
+        alert("Unable to fetch location...");
+    });
+});
