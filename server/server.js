@@ -18,9 +18,30 @@ io.on("connection", (socket) =>
     console.log("new user connected...");
     socket.on("disconnect", () =>
     {
-        console.log("client disconnected...");
+        console.log("client disconnected..");
     });
-    
+
+    socket.on("createEmail", (newEmail) =>
+    {
+        console.log("createEmail", newEmail);
+    });
+
+    socket.emit("newEmail",
+    {
+        from: "uttam@example.com",
+        text: "Hey what's going on...",
+        cratedAt: 234
+    });
+    socket.emit("newMessage",
+    {
+        from: "ket",
+        text: "hey can we meet ?",
+        cratedAt: 134
+    });
+    socket.on("createMessage",(body) =>
+    {
+        console.log("create message..", body);
+    });
 });
 
 server.listen(port, () =>
