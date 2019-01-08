@@ -26,21 +26,22 @@ io.on("connection", (socket) =>
         console.log("createEmail", newEmail);
     });
 
-    socket.emit("newEmail",
+    // socket.emit("newEmail",
+    // {
+    //     from: "uttam@example.com",
+    //     text: "Hey what's going on...",
+    //     cratedAt: 234
+    // });
+    
+    socket.on("createMessage",(message) =>
     {
-        from: "uttam@example.com",
-        text: "Hey what's going on...",
-        cratedAt: 234
-    });
-    socket.emit("newMessage",
-    {
-        from: "ket",
-        text: "hey can we meet ?",
-        cratedAt: 134
-    });
-    socket.on("createMessage",(body) =>
-    {
-        console.log("create message..", body);
+        console.log("create message..", message);
+        io.emit("newMessage",
+        {
+            from: message.from,
+            text: message.text,
+            cratedAt: new Date().getTime()
+        });
     });
 });
 
