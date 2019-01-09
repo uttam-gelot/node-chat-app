@@ -13,13 +13,11 @@ class Users
             room
         }
         this.users.push(user);
-        console.log("addUser : ",user);
         return user;
     }
     getUser(id)
     {
         var user = this.users.filter((user) => user.id === id);
-        console.log(`getUser(${id}) : ${user[0]}`);
         return user[0];
     }
     getUserList(room)
@@ -29,8 +27,6 @@ class Users
             return user.room == room;
         });
         var namesArray = users.map((user) => user.name);
-        console.log("getUserList(users) : ", users);
-        console.log("getUserList : ", namesArray);
         return namesArray;
     }
     removeUser(id)
@@ -40,7 +36,6 @@ class Users
         {
             this.users = this.users.filter((user) => user.id != id);
         }
-        console.log(`removeUser(${id}) : ${user}`);
         return user;
     }
 };
