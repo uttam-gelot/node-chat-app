@@ -113,3 +113,21 @@ locationButton.on("click", function ()
         alert("Unable to fetch location...");
     });
 });
+var flag = false;
+$("#peopleButton").on("click", function () 
+{  
+    $(".chat__sidebar").toggle();
+    $("#users").css("margin-top", "50");
+    $("#peopleTitle").hide();
+    if(flag === false)
+    {
+        $(".chat__main").css("width", "150");
+        flag = true;
+    }
+    else
+    {
+        $(".chat__main").css("width", "300");
+        flag = false;
+    }
+
+});

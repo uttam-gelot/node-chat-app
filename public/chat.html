@@ -4,13 +4,17 @@
         <title>Chat | ChatApp</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-        <link rel="stylesheet" href="/css/style.css"> 
+        <link rel="stylesheet" href="/css/style.css">
     </head>
     <body class="chat">
         <div class="chat__sidebar">
-            <h3>People</h3>
+            <h3 id="peopleTitle">Online</h3>
             <div id="users"></div>
         </div>
+        <div id="mobile">
+            <button id="peopleButton">Online</button>
+        </div>
+        <br>
         <div class="chat__main">
             <ol id="messages" class="chat__messages"></ol>
             <div class="chat__footer">

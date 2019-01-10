@@ -24,6 +24,7 @@ button {
   cursor: pointer;
   padding: 10px;
   transition: background .3s ease;
+  border-radius: 10px;
 }
 
 button:hover {
@@ -59,6 +60,7 @@ button:disabled {
   padding: 0px 20px;
   margin: 20px;
   width: 230px;
+  margin-top: -200px;
 }
 
 .form-field {
@@ -171,12 +173,36 @@ button:disabled {
 .message__title span {
   color: #999;
 }
-
+#mobile
+{
+  display: none;
+}
+#info
+{
+  position: fixed;
+  margin-top: 170px;
+  background-color:rgb(146, 218, 144);
+  padding: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: monospace;
+}
 @media (max-width: 600px) {
   * {
     font-size: 1rem;
   }
 
+  #mobile
+  {
+    display: block; 
+    position:fixed;
+  }
+  .chat__main
+  {
+    margin-top: 25px;
+    height: 96vh;
+  }
   .chat__sidebar {
     display: none;
   }
